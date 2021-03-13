@@ -37,35 +37,37 @@
                         <div class="show-form-title2"><%= f.text_field :title %></div>
                         <div class="show-form-opinion">Opinion</div>
                         <div class="show-form-opinion2"><%= f.text_area :body %></div>
-                        <div class="show-form-submit"><%= f.submit 'Create Book' %></div>
+                        <div class="show-form-submit"><%= f.submit 'Create Book', class: "submit-title"%></div>
                     <% end %>
                   </div>
               </div>
       </div>
-              <div class="col-8">
+         <div class="col-8">
                 <div class="user-index-title">
                   <h1>users</h1>
                 </div>
                  <table class="table">
                    <thead>
                      <tr>
-                       <th>image</th>
-                       <th>name</th>
                        <th></th>
+                       <th>Title</th>
+                       <th>Opinion</th>
                      </tr>
                    </thead>
-                    <% @users.each do |user| %>
+                    <% @books.each do |book| %>
                          <tbody>
-                           <td><%= user.name %></td>
-                           <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
+                           <td><%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
                            <td>
-                            <%= link_to user_path(user.id), method: :get do %>
-                              <p>show</p>
-                            <% end %>
+                              <%= link_to book_path(book.id), method: :get do %>
+                                <%= book.title %>
+                              <% end %>
+                           </td>
+                           <td>
+                             <%= book.body %>
                            </td>
                          </tbody>
                     <% end %>
                 </table>
-              </div>
+          </div>
     </div>
   </div>

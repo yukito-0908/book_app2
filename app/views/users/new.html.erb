@@ -1,2 +1,37 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="error-message" style="color:green">
+    <% if @user.errors.any? %>
+    <%= @user.errors.count %> Error occurred<br/>
+    <% @user.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+  </div>
+  <div class="container">
+    <div class="row mx-auto w-50 mt-4">
+      <div class="col">
+        <div class="profile-all">
+          <h2>User   info</h2>
+          <%= form_for(@user) do |f| %>
+          <div class="profile-name p-2">
+            <div class="profile-name1">Name</div>
+            <div class="profile-name2"><%= f.text_field :name %></div>
+          </div>
+            <div class="profile-image p-2">
+              <div class="profile-image1">Image</div>
+              <div class="profile-image2"><%= f.attachment_field :profile_image %></div>
+            </div>
+              <div class="profile-introduction p-2">
+                <div class="profile-introduction1">introduction</div>
+                <div class="profile-introduction2"><%= f.text_area :introduction %></div>
+              </div>
+                <div class="profile_submitt p-2">
+                  <div class="profile-submit1"><%= f.submit 'Update User', class: "btn btn-secondary col-sm-4 sumit-title" %></div>
+                </div>
+          <% end %>
+        </div>
+        <div class="profile-item text-center" style="padding:60px;">
+          <p>CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,2 +1,83 @@
-<h1>Books#new</h1>
-<p>Find me in app/views/books/new.html.erb</p>
+<div class="error-message" style="color:green">
+    <% if @book.errors.any? %>
+    <%= @book.errors.count %> Error occurred
+    <% @book.errors.full_messages.each do |message| %><br/>
+      <%= message %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="container">
+    <div class="row mt-4">
+      <div class="col-3">
+        <div class="col">
+          <h1>User info</h1>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></th>
+                  <th></th>
+                </tr>
+              </thead>
+                <tbody>
+                  <tr>
+                    <td>name</td>
+                    <td><%= @user.name %></td>
+                  </tr>
+                    <tr>
+                      <td>introduction</td>
+                      <td><%= @user.introduction %></td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+            <div class="col">
+              <div class="profile-edit text-center">
+                <%= link_to edit_user_path(@user), method: :get do %>
+                   <p class="border border-dark rounded" style="color:black;"><i class="far fa-user"></i></p>
+                <% end %>
+              </div>
+            </div>
+              <div class="col">
+                <h1>New book</h1>
+                  <div class="user-show-form">
+                    <%= form_for (@book_new) do |f| %>
+                        <div class="show-form-title">Title</div>
+                        <div class="show-form-title2"><%= f.text_field :title %></div>
+                        <div class="show-form-opinion">Opinion</div>
+                        <div class="show-form-opinion2"><%= f.text_area :body %></div>
+                        <div class="show-form-submit"><%= f.submit 'Create Book', class: "submit-title" %></div>
+                    <% end %>
+                  </div>
+              </div>
+      </div>
+              <div class="col-8">
+                <div class="user-index-title">
+                  <h1>users</h1>
+                </div>
+                 <table class="table">
+                   <thead>
+                     <tr>
+                       <th>image</th>
+                       <th>name</th>
+                       <th></th>
+                     </tr>
+                   </thead>
+                    <% @books.each do |book| %>
+                         <tbody>
+                           <td><%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
+                           <td>
+                              <%= link_to book_path(book.id), method: :get do %>
+                                <%= book.title %>
+                              <% end %>
+                           </td>
+                           <td>
+                             <%= book.body %>
+                           </td>
+                         </tbody>
+                    <% end %>
+                </table>
+              </div>
+    </div>
+  </div>
+

@@ -1,12 +1,24 @@
 <div class="container mt-4">
-  <div class="row">
+  <div class="row mx-auto w-50 mb-4">
     <div class="col">
-      <div class="col mx-auto w-50 mb-4">
+      <div class="col">
         <h1>welcome to<i class="fas fa-book-open"></i><span class="top-page-font" style="font-weight:bold;">Bookers</span> !!</h1>
         <p class="py-1">in <i class="fas fa-book-open"></i><span style="weight:bold;">Bookers</span>,</p>
         <p>you can share and exchange your opinions , inpressions , and emotions</p>
         <p class="py-1">about various books!</p>
       </div>
+        <div class="col text-center  mx-auto">
+          <div class="text-center w-75 mx-auto">
+            <%= link_to new_user_session_path, method: :get do %>
+              <p class="login-item">Log in</p>
+            <% end %>
+          </div>
+          <div class="text-center w-75 mx-auto">
+            <%= link_to new_user_registration_path,method: :get do  %>
+              <p class="signup-item">Sign up</p>
+            <% end %>
+          </div>
+        </div>
          <div class="col mx-auto w-50 text-center mt-4">
             <p>CopyRight Infratop.inc</p>
          </div>

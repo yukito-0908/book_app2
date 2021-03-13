@@ -37,7 +37,7 @@
                         <div class="show-form-title2"><%= f.text_field :title %></div>
                         <div class="show-form-opinion">Opinion</div>
                         <div class="show-form-opinion2"><%= f.text_area :body %></div>
-                        <div class="show-form-submit"><%= f.submit 'Create Book' %></div>
+                        <div class="show-form-submit"><%= f.submit 'Create Book', class: "submit-title"%></div>
                     <% end %>
                   </div>
               </div>
@@ -47,12 +47,13 @@
                   <table class="table">
                     <thead>
                       <tr>
-                        <td class="text-center" style="width:20%;">
+                        <td class="w-20 text-center" style="width:20%;">
                           <div class="table-title" style="distroy:block;">
-                            <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
-                            <%= link_to user_path(@user.id), method: :get do %>
+                            <div class="table-img"><%= attachment_image_tag @user, :profile_image, :fill, 100, 100,style: "width:50%;",fallback: "no_image.jpg" %></div>
+                            <div class="table-name"><%= link_to user_path(@user.id), method: :get do %>
                               <%= @user.name %>
                             <% end %>
+                            </div>
                           </div>
                         </td>
                         <td class="w-20 text-center">
@@ -60,12 +61,18 @@
                             <%= @user.name %>
                           <% end %>
                         </td>
-                        <td class="w-20 text-center"><%= @book.body %>"</td>
-                        <td class="w-20 text-center"><%= link_to 'Edit',edit_book_path %></td>
-                        <td class="w-20 text-center"><%= link_to "Delete", books_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+                        <td class="w-20 text-center"><%= @book.body %></td>
+                        <% if @user == current_user %>
+                        <div class="hidden">
+                          <td class="w-20 text-center"><%= link_to 'Edit',edit_book_path %></td>
+                          <td class="w-20 text-center"><%= link_to "Delete", books_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+                        </div>
+                        <% end %>
                       </tr>
                     </thead>
                   </table>
               </div>
     </div>
   </div>
+
+

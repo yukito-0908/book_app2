@@ -1,15 +1,69 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+
+
+ .submit-title{
+   background-color:green;
+   color: white;
+   border-radius: 5px;
+ }
+
+ .login-item{
+  background-color:lightseagreen;
+  color: white;
+  border-radius: 5px;
+  height: 30px;
+  line-height: 30px;
+ }
+ .signup-item{
+  background-color:seagreen;
+  color: white;
+  border-radius: 5px;
+  height: 30px;
+  line-height: 30px;
+ }
+ .actions-title{
+  background-color: green;
+  color: white;
+  margin-top: 15px;
+  border-radius:5px ;
+  border-color: white;
+  margin-bottom: 5px;
+ }
+
+.actions2-title{
+  background-color: blue;
+  color: white;
+  margin-top: 10px;
+  border-radius:5px ;
+  border-color: white;
+  margin-bottom: 5px;
+ }
+
+ .submit-title{
+  background-color:seagreen;
+  color: white;
+  border-radius: 5px;
+  height: 30px;
+  margin-top: 5px;
+}
+.submit-edit{
+ background-color:seagreen;
+ color: white;
+ border-radius: 5px;
+ height: 30px;
+}
+
+.notice {
+  color: white;
+  background-color: blue;
+}
+.alert {
+  color: white;
+  background-color: red;
+}
+
+.flash-title{
+ color:green;
+}
+.hidden{
+ display:none;
+}

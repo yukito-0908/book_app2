@@ -1,13 +1,5 @@
+
 <div class="container">
-<% if @book.errors.any? %>
-  <div id="error_explanation" class="alert alert-danger">
-    <ul>
-      <% @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
     <div class="row mt-4">
       <div class="col-3">
         <div class="col">
@@ -46,12 +38,12 @@
                         <div class="show-form-title2"><%= f.text_field :title %></div>
                         <div class="show-form-opinion">Opinion</div>
                         <div class="show-form-opinion2"><%= f.text_area :body %></div>
-                        <div class="show-form-submit"><%= f.submit 'Create Book' %></div>
+                        <div class="show-form-submit"><%= f.submit 'Create Book', class: "submit-title" %></div>
                     <% end %>
                   </div>
               </div>
       </div>
-              <div class="col-8">
+         <div class="col-8">
                 <div class="user-index-title">
                   <h1>users</h1>
                 </div>
@@ -63,16 +55,14 @@
                        <th></th>
                      </tr>
                    </thead>
-                    <% @books.each do |book| %>
+                    <% @users.each do |user| %>
                          <tbody>
-                           <td><%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
+                           <td><%= user.name %></td>
+                           <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
                            <td>
-                              <%= link_to book_path(book.id), method: :get do %>
-                                <%= book.title %>
-                              <% end %>
-                           </td>
-                           <td>
-                             <%= book.body %>
+                            <%= link_to user_path(user.id), method: :get do %>
+                              <p>show</p>
+                            <% end %>
                            </td>
                          </tbody>
                     <% end %>
